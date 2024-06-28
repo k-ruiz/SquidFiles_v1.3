@@ -5,6 +5,7 @@ classdef geometry
     properties
         channel_parameters
         appendage_parameters
+        capsule_parameters
     end
 
 end

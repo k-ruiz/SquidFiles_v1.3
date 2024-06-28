@@ -43,6 +43,11 @@ switch geometry_type
         system.appendage_parameters(3) = 125/45; % Position of right appendage in x.
         system.appendage_parameters(4) = 11; % Position of right appendage in y.
 
+        % Capsule geometry
+        system.capsule_parameters(1) = system.channel_parameters(1) + 4; % Radius of the posterier 
+        system.capsule_parameters(2) = system.channel_parameters(7); % Lengths of the side walls
+        system.capsule_parameters(3) = system.channel_parameters(6)-system.channel_parameters(2)*cos(system.channel_parameters(4)); % Length of the inlet
+
 end
 
 % Flow parameters
@@ -52,5 +57,5 @@ U0 = -100/NDL; % Background flow strength Max.
 nptx = 100; % Solver points in x direction.
 npty = nptx; % Solver points in y direction.
 Ptx = system.appendage_parameters(3);
-x = linspace(-(Ptx+1)-10,+(Ptx+1)+10,nptx); % Solver x coords.
-y = linspace(-(Ptx+1)-5,+(Ptx+1)+15,npty); % Solver y coords.
+x = linspace(-Ptx-15,Ptx+15,nptx); % Solver x coords.
+y = linspace(Pty-system.channel_parameters(5)-5,system.capsule_parameters(2)+system.capsule_parameters(1)+5,npty); % Solver y coords.

@@ -15,7 +15,7 @@ function [caps_stks] = geometry_capsule(rho2,Pty2,Ltot2,side2,bott2,top2)
     wallB = top2*wallB + [0,side2,0]; % shifts the half-circle to the top of the squid
 
     % construction of the bottom boundaries
-    wallD = [linspace(bott2-1,top2-1,floor(2*bott2*rho2));(Pty2-Ltot2)*ones(floor(2*bott2*rho2),1)';zeros(floor(2*bott2*rho2),1)']';
+    wallD = [linspace(bott2-1,top2-1,floor(2*bott2*rho2));(Pty2-Ltot2)*ones(floor(2*bott2*rho2),1)';2*ones(floor(2*bott2*rho2),1)']';
     wallD = wallD(2:end-1,:); % idk what this does and at this point im too afraid to ask
 
     wallE = wallD;
@@ -38,5 +38,3 @@ end
 
 % everyday I question why this things doesn't work. then i realize that i am
 % the problem
-
-
