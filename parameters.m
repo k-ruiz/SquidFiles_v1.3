@@ -33,7 +33,7 @@ switch geometry_type
         system.channel_parameters(2) = 366/NDL; % Length of transition region.
         system.channel_parameters(3) = 200/NDL; % Length of bottom segment.
         system.channel_parameters(4) = (pi/2)-0.61; % Angle of right transition region to horizontal.
-        system.channel_parameters(5) = system.channel_parameters(1)+sin(pi/4)*system.channel_parameters(2)+system.channel_parameters(3); % Total height of system simulated.
+        system.channel_parameters(5) = system.channel_parameters(1)+sin(system.channel_parameters(4))*system.channel_parameters(2)+system.channel_parameters(3); % Total height of system simulated.
         system.channel_parameters(6) = 500/NDL; % Position x of top point of right boundary.
         system.channel_parameters(7) = system.channel_parameters(1)+system.channel_parameters(2)/2; % Position y of top point of right boundary.
 
@@ -44,9 +44,9 @@ switch geometry_type
         system.appendage_parameters(4) = 11; % Position of right appendage in y.
 
         % Capsule geometry
-        system.capsule_parameters(1) = 560/NDL; % Radius of the posterier 
+        system.capsule_parameters(1) = 1120/NDL; % Radius of the posterier 
         system.capsule_parameters(2) = system.channel_parameters(7); % Lengths of the side walls
-        system.capsule_parameters(3) = system.channel_parameters(6)-system.channel_parameters(2)*cos(system.channel_parameters(4)); % Length of the inlet
+        system.capsule_parameters(3) = system.channel_parameters(6)-system.channel_parameters(2)*sin(system.channel_parameters(4)); % Length of the inlet
 
 end
 
