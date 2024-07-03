@@ -33,7 +33,7 @@ switch geometry_type
         system.channel_parameters(2) = 366/NDL; % Length of transition region.
         system.channel_parameters(3) = 200/NDL; % Length of bottom segment.
         system.channel_parameters(4) = (pi/2)-0.61; % Angle of right transition region to horizontal.
-        system.channel_parameters(5) = system.channel_parameters(1)+sin(system.channel_parameters(4))*system.channel_parameters(2)+system.channel_parameters(3); % Total height of system simulated.
+        system.channel_parameters(5) = system.channel_parameters(1)+cos(system.channel_parameters(4))*system.channel_parameters(2)+system.channel_parameters(3); % Total height of system simulated.
         system.channel_parameters(6) = 500/NDL; % Position x of top point of right boundary.
         system.channel_parameters(7) = system.channel_parameters(1)+system.channel_parameters(2)/2; % Position y of top point of right boundary.
 
@@ -54,7 +54,7 @@ end
 U0 = -100/NDL; % Background flow strength Max.
 
 % Underlying space parameters.
-nptx = 100; % Solver points in x direction.
+nptx = 50; % Solver points in x direction.
 npty = nptx; % Solver points in y direction.
 Ptx = system.channel_parameters(6);
 Pty = system.channel_parameters(7);
