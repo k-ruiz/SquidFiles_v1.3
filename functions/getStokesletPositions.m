@@ -52,7 +52,7 @@ function stks = getStokesletPositions(rho1,geometry_type,geometry,U01)
             stks_appendages2 = geometry_cylinderPair2(rho1,dsep,pi-psi,-PRAx,PRAy,1); % Set the left appendage pair geometry.
         
             %stks = [stks_channel;stks_appendages1;stks_appendages2]; % Combine all structures.
-            stks = [stks_channel;stks_cap; stks_appendages1; stks_appendages2]; % Combine all structures.
+            stks = [stks_channel;stks_cap;stks_appendages1;stks_appendages2]; % Combine all structures.
         
             %% Set the corresponding boundary velocities
         
