@@ -72,6 +72,9 @@ function stks = getStokesletPositions(rho1,geometry_type,geometry,U01)
         
             %% No-slip boundaries -- stks(:,3) == 3
             % Can add other boundary conditions for the bottom of a channel here.
+            ind = find(stks(:,3)==3); % Get relevant Stokeslets for which this boundary condition holds
+            nTemp = length(ind); % Get the number of Stokeslets contained in this set.
+            BdryVelo(ind,:) = poisuelleFlow(nTemp,U01); % Prescibe the boundary velocity at these points.
         
             %% No-slip boundaries -- stks(:,3) == 4,5,6,7
             % Boundary conditions following those found in Nawroth 2017, see SM.
@@ -90,9 +93,30 @@ function stks = getStokesletPositions(rho1,geometry_type,geometry,U01)
             ind = find(stks(:,3)==7); nTemp = length(ind);
             BdryVelo(ind,:) = surfaceFlow2(nTemp,(3*pi/2)-delta);
         
+            %% Poisuelle boundary flow -- stks(:,3) == 8
+            ind = find(stks(:,3)==8); % Get relevant Stokeslets for which this boundary condition holds
+            nTemp = length(ind); % Get the number of Stokeslets contained in this set.
+            BdryVelo(ind,:) = poisuelleFlow(nTemp,U01); % Prescibe the boundary velocity at these points.
+
+            %% Poisuelle boundary flow -- stks(:,3) == 9
+            ind = find(stks(:,3)==9); % Get relevant Stokeslets for which this boundary condition holds
+            nTemp = length(ind); % Get the number of Stokeslets contained in this set.
+            BdryVelo(ind,:) = poisuelleFlow(nTemp,U01); % Prescibe the boundary velocity at these points.
+            
             %% Append the BdryVelo array to stks
             stks = [stks,BdryVelo];
 
+            %{
+            %%
+            for i = 1:length(stks(:,1))
+                for j = 1:length(stks(:,1))
+                d = norm(stks(i,1:2)-stks(j,1:2));
+                if (d == 0 && i~=j)
+                    stks(j,:) = [];
+                end
+            end
+        end
     end
+            %}
     
 end

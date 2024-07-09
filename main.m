@@ -1,7 +1,6 @@
 % Title: Code to get the fluid flow from a set of Regularized Stokeslets.
 % Author: Stephen Williams.
 
-clc
 close
 tic
 
