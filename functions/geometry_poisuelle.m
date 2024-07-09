@@ -33,7 +33,8 @@ function [channel_stks] = geometry_poisuelle(rho2,Lt2,Lm2,Lb2,theta2,Ptx2,Pty2)
     % wallB = [linspace(-Lbottom,Lbottom,floor(2*Lbottom*rho2)); Ybottom*ones(floor(2*Lbottom*rho2),1)'; 3*ones(floor(2*Lbottom*rho2),1)']';
 
     % Combine to give the full position array.
-    channel_stks = [wallL;wallR;wallT];
+    %channel_stks = [wallL;wallR;wallT];
+    channel_stks = [wallL;wallR];
     %channel_stks = [wallL;wallR;wallT;wallB];
 
 end
