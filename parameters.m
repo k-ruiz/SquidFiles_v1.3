@@ -51,10 +51,10 @@ switch geometry_type
 end
 
 % Flow parameters
-U0 = -100/NDL; % Background flow strength Max.
+U0 = 100/NDL; % Background flow strength Max.
 
 % Underlying space parameters.
-nptx = 50; % Solver points in x direction.
+nptx = 200; % Solver points in x direction.
 npty = nptx; % Solver points in y direction.
 Ptx = system.channel_parameters(6);
 Pty = system.channel_parameters(7);

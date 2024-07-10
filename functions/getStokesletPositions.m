@@ -106,17 +106,16 @@ function stks = getStokesletPositions(rho1,geometry_type,geometry,U01)
             %% Append the BdryVelo array to stks
             stks = [stks,BdryVelo];
 
-            %{
             %%
             for i = 1:length(stks(:,1))
                 for j = 1:length(stks(:,1))
                 d = norm(stks(i,1:2)-stks(j,1:2));
-                if (d == 0 && i~=j)
-                    stks(j,:) = [];
+                    if (d == 0 && i~=j)
+                        stks(j,:) = [];
+                    end
                 end
             end
-        end
     end
-            %}
+            
     
 end
